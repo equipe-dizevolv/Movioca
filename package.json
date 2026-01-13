@@ -1,0 +1,33 @@
+{
+  "name": "movioca-react",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "movioca",
+    "crypto",
+    "dashboard",
+    "react"
+  ],
+  "author": "MOVIOCA Team",
+  "license": "ISC",
+  "description": "MOVIOCA - Crypto Dashboard Template converted to React",
+  "dependencies": {
+    "apexcharts": "^5.3.6",
+    "modules": "^0.4.0",
+    "react": "^19.2.3",
+    "react-apexcharts": "^1.9.0",
+    "react-dom": "^19.2.3",
+    "react-router-dom": "^7.12.0",
+    "swiper": "^12.0.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.7.0",
+    "vite": "^6.4.1"
+  }
+}
