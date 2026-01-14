@@ -11,9 +11,12 @@ import {
   Folder,
   List,
   Building2,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react@0.487.0";
 import { useAuth } from "../contexts/AuthContext";
 import logoWhite from "figma:asset/0e588a2cd1ae883ddc283f360db1fd55b9002906.png";
+import { useState } from "react";
 
 interface SidebarProps {
   currentScreen: string;
@@ -24,6 +27,7 @@ interface SidebarProps {
 
 export default function Sidebar({ currentScreen, onNavigate, isOpen, onClose }: SidebarProps) {
   const { allowedMenus, currentUser } = useAuth();
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   const allMenuItems = [
     { name: "Dashboard", icon: LayoutDashboard },
@@ -93,24 +97,47 @@ export default function Sidebar({ currentScreen, onNavigate, isOpen, onClose }: 
       )}
 
       {/* Sidebar com animação slide */}
-      <div className={`
-        fixed md:static inset-y-0 left-0 z-50
-        bg-sidebar dark:bg-sidebar w-64 md:w-64 max-w-[280px] md:max-w-none h-screen flex flex-col text-white
-        transform transition-transform duration-300 ease-in-out
-        ${isOpen ? 'translate-x-0' : '-translate-x-full'}
-        md:translate-x-0
-      `}>
+      <div 
+        className={`
+          fixed md:static inset-y-0 left-0 z-50
+          bg-sidebar dark:bg-sidebar h-screen flex flex-col text-white
+          transform transition-all duration-300 ease-in-out
+          ${isOpen ? 'translate-x-0' : '-translate-x-full'}
+          md:translate-x-0
+          relative
+        `}
+        style={{ width: isCollapsed ? '80px' : '256px' }}
+      >
+        {/* Botão de toggle para retrair/expandir - visível apenas em desktop */}
+        <button
+          onClick={() => setIsCollapsed(!isCollapsed)}
+          className="hidden md:flex absolute -right-3 top-28 z-50 w-6 h-6 bg-sidebar-accent hover:bg-sidebar-accent/80 rounded-full items-center justify-center shadow-lg border-2 border-background transition-colors"
+          title={isCollapsed ? "Expandir menu" : "Retrair menu"}
+        >
+          {isCollapsed ? (
+            <ChevronRight className="w-4 h-4 text-white" />
+          ) : (
+            <ChevronLeft className="w-4 h-4 text-white" />
+          )}
+        </button>
+
         {/* Logo - com espaçamento maior para respirar */}
         <div className="h-24 md:h-24 pt-20 md:pt-0 flex items-center justify-center border-b border-sidebar-border px-6 shrink-0">
-          <img 
-            src={logoWhite} 
-            alt="Movioca" 
-            className="h-12 w-auto object-contain"
-          />
+          {isCollapsed ? (
+            <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-lg">M</span>
+            </div>
+          ) : (
+            <img 
+              src={logoWhite} 
+              alt="Movioca" 
+              className="h-12 w-auto object-contain"
+            />
+          )}
         </div>
 
         {/* Navigation - com espaço extra no topo */}
-        <nav className="flex-1 overflow-y-auto px-4 pt-6 pb-4 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+        <nav className={`flex-1 overflow-y-auto ${isCollapsed ? 'px-2' : 'px-4'} pt-6 pb-4 scrollbar-hide`} style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
           <div className="space-y-1">
             {menuItems.map((item) => {
               const Icon = item.icon;
@@ -137,14 +164,15 @@ export default function Sidebar({ currentScreen, onNavigate, isOpen, onClose }: 
                 <button
                   key={item.name}
                   onClick={() => handleNavigate(item.name)}
-                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
+                  className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'gap-3'} ${isCollapsed ? 'px-2' : 'px-4'} py-3 rounded-lg transition-colors ${
                     isActive
                       ? "bg-sidebar-accent"
                       : "hover:bg-sidebar-accent/50"
                   }`}
+                  title={isCollapsed ? item.name : undefined}
                 >
-                  <Icon className="w-5 h-5" />
-                  <span className="flex-1 text-left">{item.name}</span>
+                  <Icon className="w-5 h-5 shrink-0" />
+                  {!isCollapsed && <span className="flex-1 text-left">{item.name}</span>}
                 </button>
               );
             })}
@@ -153,9 +181,11 @@ export default function Sidebar({ currentScreen, onNavigate, isOpen, onClose }: 
 
         {/* Footer */}
         <div className="h-16 border-t border-sidebar-border flex items-center justify-center px-4">
-          <p className="text-xs text-white/70 text-center">
-            © 2026 Movioca. Todos os direitos reservados.
-          </p>
+          {!isCollapsed && (
+            <p className="text-xs text-white/70 text-center">
+              © 2026 Movioca. Todos os direitos reservados.
+            </p>
+          )}
         </div>
       </div>
     </>
