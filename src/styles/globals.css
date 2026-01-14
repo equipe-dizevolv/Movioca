@@ -1,0 +1,311 @@
+/* Google Fonts - Inter Tight, Rajdhani, Titillium Web */
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Rajdhani:wght@300;400;500;600;700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  --font-family-primary: 'Inter Tight', sans-serif;
+  --font-family-display: 'Rajdhani', sans-serif;
+  --font-family-heading: 'Titillium Web', sans-serif;
+  --background: #ffffff;
+  --foreground: #0F172A;
+  --card: #ffffff;
+  --card-foreground: #0F172A;
+  --popover: #ffffff;
+  --popover-foreground: #0F172A;
+  --primary: #8B5CF6;
+  --primary-foreground: #ffffff;
+  --secondary: #F8FAFC;
+  --secondary-foreground: #0F172A;
+  --muted: #F8FAFC;
+  --muted-foreground: #475569;
+  --accent: #F8FAFC;
+  --accent-foreground: #0F172A;
+  --destructive: #EF4444;
+  --destructive-foreground: #ffffff;
+  --border: #E2E8F0;
+  --input: #E2E8F0;
+  --input-background: #ffffff;
+  --switch-background: #E2E8F0;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: #8B5CF6;
+  --chart-1: #8B5CF6;
+  --chart-2: #3B82F6;
+  --chart-3: #22C55E;
+  --chart-4: #F59E0B;
+  --chart-5: #EF4444;
+  --radius: 0.5rem;
+  --sidebar: #8B5CF6;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #ffffff;
+  --sidebar-primary-foreground: #8B5CF6;
+  --sidebar-accent: #7C4FE0;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #7C4FE0;
+  --sidebar-ring: #ffffff;
+}
+
+.dark {
+  --background: #1C1540;
+  --foreground: #E6E6F2;
+  --card: #231A57;
+  --card-foreground: #E6E6F2;
+  --popover: #231A57;
+  --popover-foreground: #E6E6F2;
+  --primary: #8B5CF6;
+  --primary-foreground: #ffffff;
+  --secondary: #2A225C;
+  --secondary-foreground: #E6E6F2;
+  --muted: #2A225C;
+  --muted-foreground: #B9B6D3;
+  --accent: #2A225C;
+  --accent-foreground: #E6E6F2;
+  --destructive: #EF4444;
+  --destructive-foreground: #ffffff;
+  --border: #3D3470;
+  --input: #3D3470;
+  --input-background: #16102E;
+  --switch-background: #2A225C;
+  --ring: #8B5CF6;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: #8B5CF6;
+  --chart-2: #3B82F6;
+  --chart-3: #22C55E;
+  --chart-4: #F59E0B;
+  --chart-5: #EF4444;
+  --sidebar: #18113A;
+  --sidebar-foreground: #E6E6F2;
+  --sidebar-primary: #8B5CF6;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #231A57;
+  --sidebar-accent-foreground: #E6E6F2;
+  --sidebar-border: #2A225C;
+  --sidebar-ring: #8B5CF6;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-family-primary);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-heading);
+  }
+}
+
+/**
+ * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h3 {
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h4 {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    p {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+
+    label {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    button {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    input {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+/* ========================================
+   MOVIOCA GLOBAL SCROLLBAR
+   Scrollbar lilás em todo o sistema
+   ======================================== */
+
+/* WebKit (Chrome, Edge, Safari, Electron, Figma Make) */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #F3F0FF;
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #8B5CF6;
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #7042EE;
+}
+
+/* Escopos específicos para garantir consistência em wrappers com overflow */
+.tabela-wrapper::-webkit-scrollbar,
+.grid-scroll::-webkit-scrollbar,
+.lista-scroll::-webkit-scrollbar,
+.modal-body::-webkit-scrollbar,
+.dropdown-menu::-webkit-scrollbar,
+.overflow-auto::-webkit-scrollbar,
+.overflow-x-auto::-webkit-scrollbar,
+.overflow-y-auto::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.tabela-wrapper::-webkit-scrollbar-track,
+.grid-scroll::-webkit-scrollbar-track,
+.lista-scroll::-webkit-scrollbar-track,
+.modal-body::-webkit-scrollbar-track,
+.dropdown-menu::-webkit-scrollbar-track,
+.overflow-auto::-webkit-scrollbar-track,
+.overflow-x-auto::-webkit-scrollbar-track,
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: #F3F0FF;
+  border-radius: 999px;
+}
+
+.tabela-wrapper::-webkit-scrollbar-thumb,
+.grid-scroll::-webkit-scrollbar-thumb,
+.lista-scroll::-webkit-scrollbar-thumb,
+.modal-body::-webkit-scrollbar-thumb,
+.dropdown-menu::-webkit-scrollbar-thumb,
+.overflow-auto::-webkit-scrollbar-thumb,
+.overflow-x-auto::-webkit-scrollbar-thumb,
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: #8B5CF6;
+  border-radius: 999px;
+}
+
+.tabela-wrapper::-webkit-scrollbar-thumb:hover,
+.grid-scroll::-webkit-scrollbar-thumb:hover,
+.lista-scroll::-webkit-scrollbar-thumb:hover,
+.modal-body::-webkit-scrollbar-thumb:hover,
+.dropdown-menu::-webkit-scrollbar-thumb:hover,
+.overflow-auto::-webkit-scrollbar-thumb:hover,
+.overflow-x-auto::-webkit-scrollbar-thumb:hover,
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: #7042EE;
+}
+
+/* Firefox */
+* {
+  scrollbar-color: #8B5CF6 #F3F0FF;
+  scrollbar-width: thin;
+}
+
+/* Dark mode */
+.dark *::-webkit-scrollbar-track {
+  background: #231A57;
+}
+
+.dark * {
+  scrollbar-color: #8B5CF6 #231A57;
+}
+
+.dark .tabela-wrapper::-webkit-scrollbar-track,
+.dark .grid-scroll::-webkit-scrollbar-track,
+.dark .lista-scroll::-webkit-scrollbar-track,
+.dark .modal-body::-webkit-scrollbar-track,
+.dark .dropdown-menu::-webkit-scrollbar-track,
+.dark .overflow-auto::-webkit-scrollbar-track,
+.dark .overflow-x-auto::-webkit-scrollbar-track,
+.dark .overflow-y-auto::-webkit-scrollbar-track {
+  background: #231A57;
+}
+
+/* Hide scrollbar for sidebar */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
