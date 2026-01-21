@@ -1,13 +1,7 @@
-/* Google Fonts - Inter Tight, Rajdhani, Titillium Web */
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Rajdhani:wght@300;400;500;600;700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
-
 @custom-variant dark (&:is(.dark *));
 
 :root {
   --font-size: 16px;
-  --font-family-primary: 'Inter Tight', sans-serif;
-  --font-family-display: 'Rajdhani', sans-serif;
-  --font-family-heading: 'Titillium Web', sans-serif;
   --background: #ffffff;
   --foreground: #0F172A;
   --card: #ffffff;
@@ -134,11 +128,6 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-family-primary);
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-family-heading);
   }
 }
 
